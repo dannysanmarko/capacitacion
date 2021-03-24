@@ -31,7 +31,30 @@ public class Tabla {
         btnFiltrar.click();
         Utils.Espera.esperar("//*[@id=\"pluginAppObj_4_01_jtable\"]");
         List<WebElement> filas = tablaFiltrada.findElements(By.tagName("tr"));
+        int cantFilas = filas.size();
+        String id = "",texto = "", email = "", area = "", fecha = "", lista = "", seleccion = "", radio = "";
+        for (int x = 1; x < cantFilas; x++){
+            List<WebElement> celdas = filas.get(x).findElements(By.tagName("td"));
+            id = id + celdas.get(0).getText() + ";";
+            texto = texto + celdas.get(1).getText() + ";";
+            email = email + celdas.get(2).getText() + ";";
+            area = area + celdas.get(3).getText() + ";";
+            fecha = fecha + celdas.get(4).getText() + ";";
+            lista = lista + celdas.get(5).getText() + ";";
+            seleccion = seleccion + celdas.get(6).getText() + ";";
+            radio = radio + celdas.get(7).getText() + ";";
+        }
 
+        System.out.println("********** RECUPERAR INFROMACION **********");
+        System.out.println("ID: "+"\n"+id);
+        System.out.println("TEXTO: "+"\n"+texto);
+        System.out.println("EMAIL: "+"\n"+email);
+        System.out.println("AREA: "+"\n"+area);
+        System.out.println("FECHA: "+"\n"+fecha);
+        System.out.println("LISTA: "+"\n"+lista);
+        System.out.println("SELECCION: "+"\n"+seleccion);
+        System.out.println("RADIO: "+"\n"+radio);
+        System.out.println("*******************************************");
     }
 }
 

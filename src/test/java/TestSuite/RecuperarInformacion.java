@@ -7,6 +7,7 @@ import Utils.ReadProperties;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import page.Index;
 
 public class RecuperarInformacion {
     String url = "http://www.qanovagroup.com/piloto";
@@ -52,6 +53,10 @@ public class RecuperarInformacion {
 
     @Test
     public void extraer_tabla() throws InterruptedException {
+        Index extraer = new Index();
+        String usuario = ReadProperties.readFromConfig("propiedades.properties").getProperty("usuario");
+        String clave = ReadProperties.readFromConfig("propiedades.properties").getProperty("clave");
+        extraer.extraer(usuario,clave);
         TestLogin extraer_tabla = new TestLogin();
         String nombre = ReadProperties.readFromConfig("propiedades.properties").getProperty("nombre");
         extraer_tabla.extraer_tabla(nombre);
