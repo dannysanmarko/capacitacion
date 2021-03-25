@@ -1,5 +1,6 @@
 package TestClases;
 
+import page.Carga_Archivos;
 import page.Index;
 import page.Tabla;
 
@@ -7,6 +8,7 @@ public class TestLogin  {
 
     Index index;
     Tabla tabla;
+    Carga_Archivos carga_archivos;
     public void inicio(String usuario, String clave) throws InterruptedException{
         index = new Index();
         index.login(usuario, clave);
@@ -28,5 +30,9 @@ public class TestLogin  {
         tabla.Filtrar(nombre);
     }
 
+    public void subir_archivos(String archivo) throws InterruptedException{
+        carga_archivos = new Carga_Archivos();
+        carga_archivos.archivos(archivo);
+    }
 
 }

@@ -9,11 +9,13 @@ Utils/Navegador.java
  Utils.Navegador
 Utils/Espera.java
  Utils.Espera
+page/Tabla.java
+ page.Tabla
 page/Index.java
  page.Index
 TestSuite/RecuperarInformacion.java
  TestSuite.RecuperarInformacion
+page/Carga_Archivos.java
+ page.Carga_Archivos
 TestClases/TestLogin.java
  TestClases.TestLogin
-page/Tabla.java
- page.Tabla

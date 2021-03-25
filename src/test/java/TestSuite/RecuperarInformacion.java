@@ -61,4 +61,15 @@ public class RecuperarInformacion {
         String nombre = ReadProperties.readFromConfig("propiedades.properties").getProperty("nombre");
         extraer_tabla.extraer_tabla(nombre);
     }
+
+    @Test
+    public void subir_archivo() throws InterruptedException {
+        Index extraer = new Index();
+        String usuario = ReadProperties.readFromConfig("propiedades.properties").getProperty("usuario");
+        String clave = ReadProperties.readFromConfig("propiedades.properties").getProperty("clave");
+        extraer.extraer(usuario,clave);
+        TestLogin subir_archivos = new TestLogin();
+        String archivo = ReadProperties.readFromConfig("propiedades.properties").getProperty("archivo");
+        subir_archivos.subir_archivos(archivo);
+    }
 }
