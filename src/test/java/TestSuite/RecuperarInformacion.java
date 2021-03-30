@@ -1,9 +1,10 @@
 package TestSuite;
 
 import TestClases.TestLogin;
+import Utils.Constants.Navegador;
 import Utils.DriverContext;
-import Utils.Navegador;
 import Utils.ReadProperties;
+import Utils.Reporte.PdfQaNovaReports;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -11,15 +12,21 @@ import page.Index;
 
 public class RecuperarInformacion {
     String url = "http://www.qanovagroup.com/piloto";
+    String url2 = "https://the-internet.herokuapp.com/download";
 
     @BeforeTest
     public void setUp(){
+
         DriverContext.setUp(Navegador.Chrome,url);
+        PdfQaNovaReports.createPDF();
     }
+
 
     @AfterTest
     public void end(){
+
         DriverContext.closeDriver();
+        PdfQaNovaReports.closePDF();
     }
 
     @Test
@@ -71,5 +78,33 @@ public class RecuperarInformacion {
         TestLogin subir_archivos = new TestLogin();
         String archivo = ReadProperties.readFromConfig("propiedades.properties").getProperty("archivo");
         subir_archivos.subir_archivos(archivo);
+    }
+
+    @Test
+    public void download() throws InterruptedException {
+        TestLogin download = new TestLogin();
+        download.download();
+    }
+
+    @Test
+    public void fecha() throws InterruptedException {
+        Index extraer = new Index();
+        String usuario = ReadProperties.readFromConfig("propiedades.properties").getProperty("usuario");
+        String clave = ReadProperties.readFromConfig("propiedades.properties").getProperty("clave");
+        extraer.extraer(usuario,clave);
+        TestLogin fecha = new TestLogin();
+        fecha.fecha();
+    }
+
+    @Test
+    public void agregar() throws InterruptedException {
+        TestLogin agregarUsuario = new TestLogin();
+        String nuevoUsuario = ReadProperties.readFromConfig("propiedades.properties").getProperty("nuevoUsuario");
+        String contra = ReadProperties.readFromConfig("propiedades.properties").getProperty("contra");
+        String nombreCompleto = ReadProperties.readFromConfig("propiedades.properties").getProperty("nombreCompleto");
+        String correo = ReadProperties.readFromConfig("propiedades.properties").getProperty("correo");
+        String msgAuxi = ReadProperties.readFromConfig("propiedades.properties").getProperty("msgAuxi");
+        String msgFallado = ReadProperties.readFromConfig("propiedades.properties").getProperty("msgFallado");
+        agregarUsuario.agregar(nuevoUsuario, contra, nombreCompleto, correo, msgAuxi, msgFallado);
     }
 }

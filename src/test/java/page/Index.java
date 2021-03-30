@@ -1,10 +1,16 @@
 package page;
 
+import Utils.Espera;
 import Utils.DriverContext;
+import Utils.ReadProperties;
+import Utils.Reporte.EstadoPrueba;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class Index {
     @FindBy(xpath = "//*[@id=\"imUname\"]")
@@ -52,23 +58,35 @@ public class Index {
     @FindBy(xpath = "//*[@id=\"imObjectForm_1_8_0\"]")
     WebElement btnRadio1;
 
+    @FindBy (xpath = "//*[@id=\"imObjectForm_1_5_icon\"]")
+    WebElement btnFecha;
+
+    @FindBy (xpath = "//*[@id=\"imDatePicker\"]")
+    WebElement tabFecha;
+
 
     public Index() {
         PageFactory.initElements(DriverContext.getDriver(), this);
     }
 
-    public void login(String usuario, String clave) {
+    public void login(String usuario, String clave) throws InterruptedException {
+        PdfQaNovaReports.addWebReportImage("Inicio de la pagina","El ingreso a la paginda y correcto despliege de los textbox de usuarios y  contraseña  ", EstadoPrueba.DONE,false);
         txtUser.click();
         txtUser.sendKeys(usuario);
         txtPws.click();
         txtPws.sendKeys(clave);
+        PdfQaNovaReports.addWebReportImage("Ingreso de datos","El ingreso del usuario "+usuario+" y la contraseña "+clave+" a sido todo un exito", EstadoPrueba.DONE,false);
         btnIngresar.click();
+        Thread.sleep(1000);
+        PdfQaNovaReports.addWebReportImage("Inicio de usuario","El ingreso a la paginda a sido exitoso  ", EstadoPrueba.DONE,false);
     }
 
-    public void Ierror(String msgAux) {
+    public void Ierror(String msgAux) throws InterruptedException {
+        PdfQaNovaReports.addWebReportImage("Inicio de la pagina","El ingreso a la paginda ", EstadoPrueba.DONE,false);
         btnIngresar.click();
         String msg = msgError.getText();
         String color = msgError.getCssValue("color");
+        PdfQaNovaReports.addWebReportImage("Ingreso de datos","El ingreso del usuario  y la contraseña erronia y extraccion de mensaje y color", EstadoPrueba.PASSED,false);
         if (msgAux.equals(msg)) {
             System.out.println("El texto " + msg + " se encontro en la pagina\n" + "El color es " + color);
         } else {
@@ -77,14 +95,18 @@ public class Index {
     }
 
     public void login_2(String usuario, String clave, String campo1, String campo2, String correo, String fecha, int campo_lista, boolean Multi1, boolean Multi2, boolean Multi3, int campo_radio) {
+        PdfQaNovaReports.addWebReportImage("Inicio de la pagina","El ingreso a la paginda y correcto despliege de los textbox de usuarios y  contraseña  ", EstadoPrueba.DONE,false);
         txtUser.sendKeys(usuario);
         txtPws.sendKeys(clave);
+        PdfQaNovaReports.addWebReportImage("Ingreso de datos","El ingreso del usuario "+usuario+" y la contraseña "+clave+" a sido todo un exito", EstadoPrueba.DONE,false);
         btnIngresar.click();
-        Utils.Espera.esperar("//*[@id=\"imObjectForm_1_2\"]");
+        Espera.esperar("//*[@id=\"imObjectForm_1_2\"]");
+        PdfQaNovaReports.addWebReportImage("Inicio de usuario","El ingreso a la paginda a sido exitoso  ", EstadoPrueba.DONE,false);
         txtCampo1.sendKeys(campo1);
         txtCampo2.sendKeys(campo2);
         txtCorreo.sendKeys(correo);
         txtFecha.sendKeys(fecha);
+
         Select Lista = new Select(btnLista);
         Lista.selectByIndex(campo_lista);
         if (Multi1) {
@@ -108,7 +130,7 @@ public class Index {
                 btnRadio1.click();
                 break;
         }
-
+        PdfQaNovaReports.addWebReportImage("Ingreso de datos", "Completamiento de los textbox correspondientes para la carga de informacion",EstadoPrueba.PASSED,false);
 
     }
 
@@ -116,7 +138,26 @@ public class Index {
         txtUser.sendKeys(usuario);
         txtPws.sendKeys(clave);
         btnIngresar.click();
-        Utils.Espera.esperar("//*[@id=\"imObjectForm_1_2\"]");
+        Espera.esperar("//*[@id=\"imObjectForm_1_2\"]");
+
+    }
+
+    public void fecha() throws InterruptedException {
+        Thread.sleep(1000);
+        btnFecha.click();
+        Thread.sleep(1000);
+        List<WebElement> fila = tabFecha.findElements(By.tagName("td"));
+        int cantidadFila = fila.size();
+
+        for (int i =1;i<cantidadFila;i++){
+            String dia=fila.get(i).getText();
+
+            if(dia.equals(ReadProperties.readFromConfig("Properties.properties").getProperty("Dia"))){
+                fila.get(i).click();
+                break;
+
+            }
+        }
 
     }
 

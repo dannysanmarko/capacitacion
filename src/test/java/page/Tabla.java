@@ -1,5 +1,6 @@
 package page;
 
+import Utils.Espera;
 import Utils.DriverContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -29,7 +30,7 @@ public class Tabla {
         btnMatrizInfo.click();
         txtFiltrar.sendKeys(nombre);
         btnFiltrar.click();
-        Utils.Espera.esperar("//*[@id=\"pluginAppObj_4_01_jtable\"]");
+        Espera.esperar("//*[@id=\"pluginAppObj_4_01_jtable\"]");
         List<WebElement> filas = tablaFiltrada.findElements(By.tagName("tr"));
         int cantFilas = filas.size();
         String id = "",texto = "", email = "", area = "", fecha = "", lista = "", seleccion = "", radio = "";

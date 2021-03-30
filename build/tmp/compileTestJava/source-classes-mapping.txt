@@ -1,21 +1,42 @@
-Utils/DriverContext.java
- Utils.DriverContext
-Utils/ReadProperties.java
- Utils.ReadProperties
+Utils/Constants/Navegador.java
+ Utils.Constants.Navegador
+page/Calendario.java
+ page.Calendario
+page/PaginaDownload.java
+ page.PaginaDownload
+Utils/Utils.java
+ Utils.Utils
 Utils/DriverManager.java
  Utils.DriverManager
  Utils.DriverManager$1
-Utils/Navegador.java
- Utils.Navegador
+Utils/Reporte/ImageResize.java
+ Utils.Reporte.ImageResize
 Utils/Espera.java
  Utils.Espera
+Utils/Constants/Constants.java
+ Utils.Constants.Constants
+Utils/Validaciones.java
+ Utils.Validaciones
 page/Tabla.java
  page.Tabla
+Utils/Constants/Ambientes.java
+ Utils.Constants.Ambientes
+page/Carga_Archivos.java
+ page.Carga_Archivos
+Utils/DriverContext.java
+ Utils.DriverContext
+Utils/Reporte/EstadoPrueba.java
+ Utils.Reporte.EstadoPrueba
+Utils/Reporte/PdfQaNovaReports.java
+ Utils.Reporte.PdfQaNovaReports
+ Utils.Reporte.PdfQaNovaReports$1
+Utils/ReadProperties.java
+ Utils.ReadProperties
 page/Index.java
  page.Index
 TestSuite/RecuperarInformacion.java
  TestSuite.RecuperarInformacion
-page/Carga_Archivos.java
- page.Carga_Archivos
+page/AgregarUsuario.java
+ page.AgregarUsuario
 TestClases/TestLogin.java
  TestClases.TestLogin

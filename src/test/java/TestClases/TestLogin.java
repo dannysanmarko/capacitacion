@@ -1,20 +1,20 @@
 package TestClases;
 
-import page.Carga_Archivos;
-import page.Index;
-import page.Tabla;
+import page.*;
 
 public class TestLogin  {
 
     Index index;
     Tabla tabla;
     Carga_Archivos carga_archivos;
+    PaginaDownload paginaDownload;
+    AgregarUsuario agregarUsuario;
     public void inicio(String usuario, String clave) throws InterruptedException{
         index = new Index();
         index.login(usuario, clave);
     }
 
-    public void ErrorAux() {
+    public void ErrorAux() throws InterruptedException {
         String msgAux = "Nombre y/o password incorrecto";
         index = new Index();
         index.Ierror(msgAux);
@@ -33,6 +33,24 @@ public class TestLogin  {
     public void subir_archivos(String archivo) throws InterruptedException{
         carga_archivos = new Carga_Archivos();
         carga_archivos.archivos(archivo);
+    }
+
+    public void download() throws InterruptedException{
+        paginaDownload = new PaginaDownload();
+        paginaDownload.eliminarArchivo();
+        paginaDownload.descargar();
+        paginaDownload.validacionDescarga();
+
+    }
+
+    public void fecha() throws InterruptedException{
+        index = new Index();
+        index.fecha();
+    }
+
+    public void agregar(String nuevoUsuario, String contra, String nombreCompleto, String correo, String msgAuxi, String msgFallado) throws InterruptedException{
+        agregarUsuario = new AgregarUsuario();
+        agregarUsuario.agregar(nuevoUsuario,contra,nombreCompleto,correo,msgAuxi,msgFallado);
     }
 
 }
