@@ -19,7 +19,7 @@ public class PaginaDownload {
     @FindBy(xpath = "//*[contains(text(),'some-file.txt')]")
     WebElement btnDescarga;
 
-    /**Metodo que da click en el boton desca
+    /**Metodo que da click en el boton descargar
      *
      * @throws InterruptedException extencion que se genera en caso de que tenga que esperar un tiempo y luego seguir ejecutandoce.
      */
@@ -30,7 +30,7 @@ public class PaginaDownload {
         Thread.sleep(10000);
     }
 
-    /**
+    /**Metodo que elimina un archivo que ya se encuentre con el mismo nombre
      *
      */
 
@@ -43,7 +43,7 @@ public class PaginaDownload {
         }
     }
 
-    /**
+    /**Metodo que comprueba si ya existe el archivo
      *
      */
 
