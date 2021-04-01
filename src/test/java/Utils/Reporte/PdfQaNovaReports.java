@@ -111,7 +111,7 @@ public class PdfQaNovaReports {
 
         return line;
     }
-
+    //recupera el correo del usuario de git 
     public static String getRepositoryEmail() {
         String line = "";
 

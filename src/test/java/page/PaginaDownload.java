@@ -12,11 +12,17 @@ public class PaginaDownload {
 
     private String downloadmFilePath = "C:\\Users\\sanma\\Ejemplo\\";
 
-    public PaginaDownload(){
-        PageFactory.initElements(DriverContext.getDriver(), this); }
+    public PaginaDownload() {
+        PageFactory.initElements(DriverContext.getDriver(), this);
+    }
 
-    @FindBy (xpath = "//*[contains(text(),'some-file.txt')]")
+    @FindBy(xpath = "//*[contains(text(),'some-file.txt')]")
     WebElement btnDescarga;
+
+    /**Metodo que da click en el boton desca
+     *
+     * @throws InterruptedException extencion que se genera en caso de que tenga que esperar un tiempo y luego seguir ejecutandoce.
+     */
 
     public void descargar() throws InterruptedException {
         Espera.esperar("//*[contains(text(),'some-file.txt')]");
@@ -24,21 +30,28 @@ public class PaginaDownload {
         Thread.sleep(10000);
     }
 
-    public void eliminarArchivo(){
+    /**
+     *
+     */
+
+    public void eliminarArchivo() {
         File file = new File(downloadmFilePath + "some-file.txt");
-        if(file.delete()){
+        if (file.delete()) {
             System.out.println("borrado con exito");
-        }
-        else {
+        } else {
             System.out.println("no se logro borrar el archivo");
         }
     }
+
+    /**
+     *
+     */
+
     public void validacionDescarga() {
         File file = new File(downloadmFilePath + "some-file.txt");
-        if(file.exists()){
+        if (file.exists()) {
             System.out.println("el archivo ya existe");
-        }
-        else {
+        } else {
             System.out.println("el archivo no existe");
         }
     }
