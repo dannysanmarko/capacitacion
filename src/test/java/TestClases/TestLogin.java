@@ -1,5 +1,6 @@
 package TestClases;
 
+import BaseDeDatos.Conexion1;
 import page.*;
 
 public class TestLogin {
@@ -9,6 +10,7 @@ public class TestLogin {
     Carga_Archivos carga_archivos;
     PaginaDownload paginaDownload;
     AgregarUsuario agregarUsuario;
+    Conexion1 conexion1;
 
     public void inicio(String usuario, String clave) throws InterruptedException {
         index = new Index();
@@ -53,5 +55,6 @@ public class TestLogin {
         agregarUsuario = new AgregarUsuario();
         agregarUsuario.agregar(nuevoUsuario, contra, nombreCompleto, correo, msgAuxi, msgFallado);
     }
+
 
 }

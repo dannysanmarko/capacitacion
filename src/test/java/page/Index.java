@@ -178,7 +178,6 @@ public class Index {
         txtPws.sendKeys(clave);
         btnIngresar.click();
         Espera.esperar("//*[@id=\"imObjectForm_1_2\"]");
-
     }
 
     /**
@@ -203,7 +202,5 @@ public class Index {
 
             }
         }
-
     }
-
 }

@@ -1,3 +1,26 @@
+BaseDeDatos/Insertar.java
+ BaseDeDatos.Insertar
+Utils/Reporte/ImageResize.java
+ Utils.Reporte.ImageResize
+Utils/Constants/Constants.java
+ Utils.Constants.Constants
+page/Tabla.java
+ page.Tabla
+Utils/Constants/Ambientes.java
+ Utils.Constants.Ambientes
+Utils/DriverContext.java
+ Utils.DriverContext
+Utils/Reporte/EstadoPrueba.java
+ Utils.Reporte.EstadoPrueba
+Utils/Reporte/PdfQaNovaReports.java
+ Utils.Reporte.PdfQaNovaReports
+ Utils.Reporte.PdfQaNovaReports$1
+Utils/Validaciones.java
+ Utils.Validaciones
+TestClases/InicioJson.java
+ TestClases.InicioJson
+Utils/Espera.java
+ Utils.Espera
 Utils/Constants/Navegador.java
  Utils.Constants.Navegador
 page/Calendario.java
@@ -6,37 +29,24 @@ page/PaginaDownload.java
  page.PaginaDownload
 Utils/Utils.java
  Utils.Utils
+TestSuite/RecuperarInformacion.java
+ TestSuite.RecuperarInformacion
+TestClases/TestLogin.java
+ TestClases.TestLogin
+page/Index.java
+ page.Index
+BaseDeDatos/Actualizar.java
+ BaseDeDatos.Actualizar
+page/Carga_Archivos.java
+ page.Carga_Archivos
+BaseDeDatos/ConsultaPrueba.java
+ BaseDeDatos.ConsultaPrueba
+Utils/ReadProperties.java
+ Utils.ReadProperties
+page/AgregarUsuario.java
+ page.AgregarUsuario
 Utils/DriverManager.java
  Utils.DriverManager
  Utils.DriverManager$1
-Utils/Reporte/ImageResize.java
- Utils.Reporte.ImageResize
-Utils/Espera.java
- Utils.Espera
-Utils/Constants/Constants.java
- Utils.Constants.Constants
-Utils/Validaciones.java
- Utils.Validaciones
-page/Tabla.java
- page.Tabla
-Utils/Constants/Ambientes.java
- Utils.Constants.Ambientes
-page/Carga_Archivos.java
- page.Carga_Archivos
-Utils/DriverContext.java
- Utils.DriverContext
-Utils/Reporte/EstadoPrueba.java
- Utils.Reporte.EstadoPrueba
-Utils/Reporte/PdfQaNovaReports.java
- Utils.Reporte.PdfQaNovaReports
- Utils.Reporte.PdfQaNovaReports$1
-Utils/ReadProperties.java
- Utils.ReadProperties
-page/Index.java
- page.Index
-TestSuite/RecuperarInformacion.java
- TestSuite.RecuperarInformacion
-page/AgregarUsuario.java
- page.AgregarUsuario
-TestClases/TestLogin.java
- TestClases.TestLogin
+BaseDeDatos/Conexion1.java
+ BaseDeDatos.Conexion1

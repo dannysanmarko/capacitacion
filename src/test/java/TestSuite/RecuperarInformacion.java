@@ -1,5 +1,6 @@
 package TestSuite;
 
+import TestClases.InicioJson;
 import TestClases.TestLogin;
 import Utils.Constants.Navegador;
 import Utils.DriverContext;
@@ -10,9 +11,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.Index;
 
+import java.io.IOException;
+
 public class RecuperarInformacion {
-    /*String url1 = "http://www.qanovagroup.com/piloto";
-    String url2 = "https://the-internet.herokuapp.com/download";*/
 
     @BeforeTest
     public void setUp() {
@@ -110,4 +111,10 @@ public class RecuperarInformacion {
         String msgFallado = ReadProperties.readFromConfig("propiedades.properties").getProperty("msgFallado");
         agregarUsuario.agregar(nuevoUsuario, contra, nombreCompleto, correo, msgAuxi, msgFallado);
     }
+    @Test
+    public void ingresoJson() throws IOException, InterruptedException {
+        InicioJson ingreso = new InicioJson();
+        ingreso.ingresoJson();
+    }
+
 }
